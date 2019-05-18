@@ -302,39 +302,40 @@ let world = {
       let (state, dispatch, hooks) =
         Hooks.reducer(~initialState=State.initialState, State.reducer, hooks);
 
-      let pipes = List.map(p => <pipe pipe=p />, state.pipes);
+      let hooks =
+        Hooks.tick(
+          ~tickRate=Seconds(0.),
+          t => dispatch(Step(Time.toSeconds(t))),
+          hooks,
+        );
+      let hooks =
+        Hooks.tick(
+          ~tickRate=Seconds(4.),
+          _ =>
+            dispatch(
+              CreatePipe(Random.float(float_of_int(Assets.Pipe.height))),
+            ),
+          hooks,
+        );
 
+      let pipes = List.map(p => <pipe pipe=p />, state.pipes);
       (
         hooks,
         <Center>
           <View onMouseDown={_ => dispatch(Flap)}>
-            <Ticker
-              onTick={_ =>
-                dispatch(
-                  CreatePipe(
-                    Random.float(float_of_int(Assets.Pipe.height)),
-                  ),
-                )
-              }
-              tickRate={Seconds(4.0)}>
-              <Ticker
-                onTick={t => dispatch(Step(Time.toSeconds(t)))}
-                tickRate={Milliseconds(0.0)}>
-                <ClipContainer
-                  width=Constants.width
-                  height=Constants.height
-                  color=Colors.cornflowerBlue>
-                  <sky />
-                  <ground time={state.time} />
-                  <View> ...pipes </View>
-                  <bird y={int_of_float(state.bird.position)} />
-                  <Text
-                    style=textStyle
-                    text={"Score: " ++ string_of_int(state.score)}
-                  />
-                </ClipContainer>
-              </Ticker>
-            </Ticker>
+            <ClipContainer
+              width=Constants.width
+              height=Constants.height
+              color=Colors.cornflowerBlue>
+              <sky />
+              <ground time={state.time} />
+              <View> ...pipes </View>
+              <bird y={int_of_float(state.bird.position)} />
+              <Text
+                style=textStyle
+                text={"Score: " ++ string_of_int(state.score)}
+              />
+            </ClipContainer>
           </View>
         </Center>,
       );
