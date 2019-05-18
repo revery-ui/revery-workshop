@@ -122,23 +122,26 @@ let world = {
       let (state, dispatch, hooks) =
         Hooks.reducer(~initialState=State.initialState, State.reducer, hooks);
 
+      let hooks =
+        Hooks.tick(
+          ~tickRate=Seconds(0.),
+          t => dispatch(Step(Time.toSeconds(t))),
+          hooks,
+        );
+
       (
         hooks,
         <Center>
-          <Ticker
-            onTick={t => dispatch(Step(Time.toSeconds(t)))}
-            tickRate={Milliseconds(0.0)}>
-            <ClipContainer
-              width=Constants.width height=Constants.height color=Colors.green>
-              <sky />
-              <ground time={state.time} />
-              <bird y=50 />
-              <Text
-                style=textStyle
-                text={"Time: " ++ string_of_float(state.time)}
-              />
-            </ClipContainer>
-          </Ticker>
+          <ClipContainer
+            width=Constants.width height=Constants.height color=Colors.green>
+            <sky />
+            <ground time={state.time} />
+            <bird y=50 />
+            <Text
+              style=textStyle
+              text={"Time: " ++ string_of_float(state.time)}
+            />
+          </ClipContainer>
         </Center>,
       );
     });
