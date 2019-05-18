@@ -1,0 +1,4 @@
+(install
+    (section bin)
+    (package App)
+    (files Roboto-Regular.ttf land.png PipeDown.png PipeUp.png bird-01.png bird-02.png bird-03.png bird-04.png sky.png revery-icon.png))

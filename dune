@@ -1,0 +1,10 @@
+(executables
+    (names 1-intro 2-components 3-world 4-bird 5-obstacles 6-scoring 7-gameplay 8-completed)
+    (package App)
+    (public_names 1-intro 2-components 3-world 4-bird 5-obstacles 6-scoring 7-gameplay 8-completed)
+    (libraries
+        App.playground
+        bigarray
+        reglfw
+        Revery
+            ))
