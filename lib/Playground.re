@@ -6,8 +6,8 @@ let render = (elem) => {
 	let init = app => {
 			let createOptions =
 					WindowCreateOptions.create(
-							~width=800,
-							~height=600,
+							~width=1024,
+							~height=800,
 							(),
 					);
 			let win = App.createWindow(~createOptions, app, "FlappyRevery");

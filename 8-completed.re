@@ -5,19 +5,19 @@ open Revery.UI.Components;
 
 module Assets = {
   module Sky = {
-    let height = 128;
-    let width = 256;
+    let height = 256;
+    let width = 512;
     let image = "sky.png";
   };
   module Pipe = {
-    let width = 90;
-    let height = 480;
+    let width = 135;
+    let height = 720;
     let imageUp = "PipeUp.png";
     let imageDown = "PipeDown.png";
   };
   module Bird = {
-    let height = 32;
-    let width = 32;
+    let height = 48;
+    let width = 48;
     let image01 = "bird-01.png";
     let image02 = "bird-02.png";
     let image03 = "bird-03.png";
@@ -25,8 +25,8 @@ module Assets = {
   };
   module Land = {
     let image = "land.png";
-    let width = 256;
-    let height = 32;
+    let width = 512;
+    let height = 64;
   };
 };
 module Constants = {
@@ -38,8 +38,8 @@ module Constants = {
   let speedF = 100.;
 
   /* width (int) - the width of our 'game surface' */
-  let width = 800;
-  let height = 600;
+  let width = 1024;
+  let height = 800;
 
   let birdX = 50;
   let pipeGap = 200;
@@ -150,6 +150,12 @@ module State = {
       };
     };
 
+	let float = (time: float) => {
+		...initialState,
+		position: initialState.position +. 100. *. sin(time),
+		velocity: initialState.velocity +. 200. *. cos(time) -. 200.,
+	};
+
     let getRectangle = (bird: t) => {
       let x = Constants.birdX |> float_of_int;
       let y = bird.position;
@@ -213,9 +219,11 @@ module State = {
   };
 
   type mode =
+	| Idle
     | Gameplay
     | Falling
     | GameOver;
+
 
   type t = {
     mode,
@@ -226,7 +234,7 @@ module State = {
   };
 
   let initialState: t = {
-    mode: Gameplay,
+    mode: Idle,
     score: 0,
     pipes: [],
     bird: Bird.initialState,
@@ -236,6 +244,18 @@ module State = {
     | CreatePipe(float)
     | Flap
     | Step(float);
+
+  let idleReducer = (action, state: t) => switch (action) {
+  | Step(deltaTime) => 
+		let time = state.time +. deltaTime /. 1.5;
+		{
+			...state,
+			bird: Bird.float(time),
+			time,
+		}
+  | Flap => { ...state, mode: Gameplay }
+  | _ => state
+  }
 
   let gameplayReducer = (action, state: t) =>
     switch (action) {
@@ -276,6 +296,7 @@ module State = {
 
   let reducer = (action, state: t) =>
     switch (state.mode) {
+	| Idle => idleReducer(action, state)
     | Gameplay => gameplayReducer(action, state)
     | Falling => fallingReducer(action, state)
     | GameOver => gameOverReducer(action, state)
@@ -326,7 +347,7 @@ let world = {
               onTick={_ =>
                 dispatch(
                   CreatePipe(
-                    Random.float(float_of_int(Assets.Pipe.height)),
+                    Random.float(float_of_int(600) +. 100.),
                   ),
                 )
               }
