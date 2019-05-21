@@ -101,7 +101,7 @@ We'll move away from a boring blue screen and start adding some life to our app.
 
 > EXTRA CREDIT: Add a `<sky />` component!
 
-#### Part 3: Creating a <world />
+#### Part 3: Creating a `<world />`
 
 We've got some images at this point - but everything is static, there's no life.
 
