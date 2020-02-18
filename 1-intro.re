@@ -1,5 +1,4 @@
 open Revery;
-open Revery.Math;
 open Revery.UI;
 open Revery.UI.Components;
 
@@ -48,9 +47,8 @@ module Constants = {
 Playground.render(
   <Center>
     <ClipContainer
-      width=Constants.width
-      height=Constants.height
-      color=Colors.green
-    />
+      width=Constants.width height=Constants.height color=Colors.green>
+      React.empty
+    </ClipContainer>
   </Center>,
 );
