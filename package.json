@@ -15,9 +15,8 @@
     //"@opam/js_of_ocaml": "github:ocsigen/js_of_ocaml:js_of_ocaml.opam#db257ce",
     //"@opam/js_of_ocaml-compiler": "github:ocsigen/js_of_ocaml:js_of_ocaml-compiler.opam#db257ce",
     "esy-cmake": "prometheansacrifice/esy-cmake#2a47392def755",
-    "revery": "revery-ui/revery#8417070",
-    "timber": "glennsl/timber#ae065bb",
-    "reason-harfbuzz": "revery-ui/reason-harfbuzz#0848520"
+    "revery": "revery-ui/revery#1090477",
+    "timber": "glennsl/timber#ae065bb"
   },
   "scripts": {
    "format": "bash -c \"refmt --in-place *.re\"",

@@ -1,5 +1,5 @@
 {
-  "checksum": "a89e3befc88959051783cde4f0fdfc98",
+  "checksum": "4deba570c1b07a513101ef3dea05822c",
   "root": "revery-workshop@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#cca65f99674ed2d954d28788edeb8c57fada5ed0@d41d8cd9": {
@@ -46,7 +46,7 @@
       },
       "overrides": [],
       "dependencies": [
-        "revery@github:revery-ui/revery#8417070@d41d8cd9",
+        "revery@github:revery-ui/revery#1090477@d41d8cd9",
         "@opam/dune@opam:1.11.4@a7ccb7ae"
       ],
       "devDependencies": [
@@ -66,13 +66,13 @@
       "dependencies": [ "@opam/dune@opam:1.11.4@a7ccb7ae" ],
       "devDependencies": []
     },
-    "revery@github:revery-ui/revery#8417070@d41d8cd9": {
-      "id": "revery@github:revery-ui/revery#8417070@d41d8cd9",
+    "revery@github:revery-ui/revery#1090477@d41d8cd9": {
+      "id": "revery@github:revery-ui/revery#1090477@d41d8cd9",
       "name": "revery",
-      "version": "github:revery-ui/revery#8417070",
+      "version": "github:revery-ui/revery#1090477",
       "source": {
         "type": "install",
-        "source": [ "github:revery-ui/revery#8417070" ]
+        "source": [ "github:revery-ui/revery#1090477" ]
       },
       "overrides": [],
       "dependencies": [
@@ -82,18 +82,19 @@
         "rebez@github:jchavarri/rebez#03fa3b7@d41d8cd9",
         "reason-skia@github:revery-ui/reason-skia#69743dc@d41d8cd9",
         "reason-sdl2@2.10.3017@d41d8cd9",
-        "reason-harfbuzz@github:revery-ui/reason-harfbuzz#0848520@d41d8cd9",
+        "reason-harfbuzz@1.91.5004@d41d8cd9",
         "reason-gl-matrix@0.9.9306@d41d8cd9",
         "reason-font-manager@2.0.1@d41d8cd9", "flex@1.2.2@d41d8cd9",
         "@reason-native/rely@3.1.0@d41d8cd9",
         "@reason-native/console@0.0.3@d41d8cd9",
         "@opam/ppx_deriving@opam:4.4.1@208c6c8f",
         "@opam/lwt_ppx@opam:2.0.0@9a61dd37", "@opam/lwt@opam:4.5.0@677655b4",
+        "@opam/lru@github:bryphe/lru:lru.opam#2708c70@d41d8cd9",
         "@opam/js_of_ocaml-lwt@opam:3.5.2@6ea3e3c2",
         "@opam/js_of_ocaml-compiler@opam:3.5.0@9ea7292f",
         "@opam/js_of_ocaml@opam:3.5.2@c5bae178",
         "@esy-ocaml/reason@3.5.2@d41d8cd9",
-        "@brisk/brisk-reconciler@github:briskml/brisk-reconciler#0a2e476@d41d8cd9"
+        "@brisk/brisk-reconciler@github:briskml/brisk-reconciler#34e5991@d41d8cd9"
       ],
       "devDependencies": []
     },
@@ -212,14 +213,15 @@
       ],
       "devDependencies": []
     },
-    "reason-harfbuzz@github:revery-ui/reason-harfbuzz#0848520@d41d8cd9": {
-      "id":
-        "reason-harfbuzz@github:revery-ui/reason-harfbuzz#0848520@d41d8cd9",
+    "reason-harfbuzz@1.91.5004@d41d8cd9": {
+      "id": "reason-harfbuzz@1.91.5004@d41d8cd9",
       "name": "reason-harfbuzz",
-      "version": "github:revery-ui/reason-harfbuzz#0848520",
+      "version": "1.91.5004",
       "source": {
         "type": "install",
-        "source": [ "github:revery-ui/reason-harfbuzz#0848520" ]
+        "source": [
+          "archive:https://registry.npmjs.org/reason-harfbuzz/-/reason-harfbuzz-1.91.5004.tgz#sha1:72ae5fefe3de18a721c47d0969c1017a1eaff196"
+        ]
       },
       "overrides": [],
       "dependencies": [
@@ -839,6 +841,32 @@
         "ocaml@4.9.0@d41d8cd9", "@opam/result@opam:1.4@dc720aef"
       ]
     },
+    "@opam/psq@opam:0.2.0@247756d4": {
+      "id": "@opam/psq@opam:0.2.0@247756d4",
+      "name": "@opam/psq",
+      "version": "opam:0.2.0",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://opam.ocaml.org/cache/md5/b9/b94fb15f8878172bf58446b7d0fb7c1e#md5:b94fb15f8878172bf58446b7d0fb7c1e",
+          "archive:https://github.com/pqwy/psq/releases/download/v0.2.0/psq-v0.2.0.tbz#md5:b94fb15f8878172bf58446b7d0fb7c1e"
+        ],
+        "opam": {
+          "name": "psq",
+          "version": "0.2.0",
+          "path": "esy.lock/opam/psq.0.2.0"
+        }
+      },
+      "overrides": [],
+      "dependencies": [
+        "ocaml@4.9.0@d41d8cd9", "@opam/seq@opam:base@d8d7de1d",
+        "@opam/dune@opam:1.11.4@a7ccb7ae", "@esy-ocaml/substs@0.0.1@d41d8cd9"
+      ],
+      "devDependencies": [
+        "ocaml@4.9.0@d41d8cd9", "@opam/seq@opam:base@d8d7de1d",
+        "@opam/dune@opam:1.11.4@a7ccb7ae"
+      ]
+    },
     "@opam/printbox@opam:0.4@8e9022ed": {
       "id": "@opam/printbox@opam:0.4@8e9022ed",
       "name": "@opam/printbox",
@@ -1405,6 +1433,23 @@
         "@opam/mmap@opam:1.1.0@b85334ff",
         "@opam/dune-configurator@opam:1.0.0@4873acd8",
         "@opam/dune@opam:1.11.4@a7ccb7ae"
+      ]
+    },
+    "@opam/lru@github:bryphe/lru:lru.opam#2708c70@d41d8cd9": {
+      "id": "@opam/lru@github:bryphe/lru:lru.opam#2708c70@d41d8cd9",
+      "name": "@opam/lru",
+      "version": "github:bryphe/lru:lru.opam#2708c70",
+      "source": {
+        "type": "install",
+        "source": [ "github:bryphe/lru:lru.opam#2708c70" ]
+      },
+      "overrides": [],
+      "dependencies": [
+        "ocaml@4.9.0@d41d8cd9", "@opam/psq@opam:0.2.0@247756d4",
+        "@opam/dune@opam:1.11.4@a7ccb7ae", "@esy-ocaml/substs@0.0.1@d41d8cd9"
+      ],
+      "devDependencies": [
+        "ocaml@4.9.0@d41d8cd9", "@opam/psq@opam:0.2.0@247756d4"
       ]
     },
     "@opam/logs@opam:0.7.0@1d03143e": {
@@ -2306,14 +2351,14 @@
       "dependencies": [],
       "devDependencies": []
     },
-    "@brisk/brisk-reconciler@github:briskml/brisk-reconciler#0a2e476@d41d8cd9": {
+    "@brisk/brisk-reconciler@github:briskml/brisk-reconciler#34e5991@d41d8cd9": {
       "id":
-        "@brisk/brisk-reconciler@github:briskml/brisk-reconciler#0a2e476@d41d8cd9",
+        "@brisk/brisk-reconciler@github:briskml/brisk-reconciler#34e5991@d41d8cd9",
       "name": "@brisk/brisk-reconciler",
-      "version": "github:briskml/brisk-reconciler#0a2e476",
+      "version": "github:briskml/brisk-reconciler#34e5991",
       "source": {
         "type": "install",
-        "source": [ "github:briskml/brisk-reconciler#0a2e476" ]
+        "source": [ "github:briskml/brisk-reconciler#34e5991" ]
       },
       "overrides": [],
       "dependencies": [
