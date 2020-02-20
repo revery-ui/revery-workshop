@@ -1,5 +1,5 @@
 {
-  "checksum": "4f213dc6b2977ed73896c168ab6b0036",
+  "checksum": "a89e3befc88959051783cde4f0fdfc98",
   "root": "revery-workshop@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#cca65f99674ed2d954d28788edeb8c57fada5ed0@d41d8cd9": {
@@ -87,7 +87,7 @@
         "reason-font-manager@2.0.1@d41d8cd9", "flex@1.2.2@d41d8cd9",
         "@reason-native/rely@3.1.0@d41d8cd9",
         "@reason-native/console@0.0.3@d41d8cd9",
-        "@opam/ppx_deriving@opam:4.4@21d6c7a5",
+        "@opam/ppx_deriving@opam:4.4.1@208c6c8f",
         "@opam/lwt_ppx@opam:2.0.0@9a61dd37", "@opam/lwt@opam:4.5.0@677655b4",
         "@opam/js_of_ocaml-lwt@opam:3.5.2@6ea3e3c2",
         "@opam/js_of_ocaml-compiler@opam:3.5.0@9ea7292f",
@@ -184,9 +184,8 @@
       "dependencies": [
         "refmterr@3.3.0@d41d8cd9", "reason-sdl2@2.10.3017@d41d8cd9",
         "esy-skia@github:revery-ui/esy-skia#91b10c9@d41d8cd9",
-        "esy-sdl2@github:revery-ui/esy-sdl2#b63892b@d41d8cd9",
-        "esy-freetype2@2.9.1007@d41d8cd9", "@opam/lwt@opam:4.5.0@677655b4",
-        "@opam/dune@opam:1.11.4@a7ccb7ae",
+        "esy-sdl2@2.0.10005@d41d8cd9", "esy-freetype2@2.9.1007@d41d8cd9",
+        "@opam/lwt@opam:4.5.0@677655b4", "@opam/dune@opam:1.11.4@a7ccb7ae",
         "@opam/ctypes-foreign@opam:0.4.0@b1c8ff37",
         "@opam/ctypes@opam:0.15.1@b0227b2f",
         "@esy-ocaml/reason@3.5.2@d41d8cd9"
@@ -206,7 +205,7 @@
       "overrides": [],
       "dependencies": [
         "refmterr@3.3.0@d41d8cd9", "reason-gl-matrix@0.9.9306@d41d8cd9",
-        "esy-sdl2@github:revery-ui/esy-sdl2#b63892b@d41d8cd9",
+        "esy-sdl2@2.0.10005@d41d8cd9",
         "esy-cmake@github:prometheansacrifice/esy-cmake#2a47392def755@d41d8cd9",
         "@opam/lwt_ppx@opam:2.0.0@9a61dd37", "@opam/lwt@opam:4.5.0@677655b4",
         "@opam/dune@opam:1.11.4@a7ccb7ae", "@esy-ocaml/reason@3.5.2@d41d8cd9"
@@ -312,13 +311,15 @@
       ],
       "devDependencies": []
     },
-    "esy-sdl2@github:revery-ui/esy-sdl2#b63892b@d41d8cd9": {
-      "id": "esy-sdl2@github:revery-ui/esy-sdl2#b63892b@d41d8cd9",
+    "esy-sdl2@2.0.10005@d41d8cd9": {
+      "id": "esy-sdl2@2.0.10005@d41d8cd9",
       "name": "esy-sdl2",
-      "version": "github:revery-ui/esy-sdl2#b63892b",
+      "version": "2.0.10005",
       "source": {
         "type": "install",
-        "source": [ "github:revery-ui/esy-sdl2#b63892b" ]
+        "source": [
+          "archive:https://registry.npmjs.org/esy-sdl2/-/esy-sdl2-2.0.10005.tgz#sha1:adfb34d5cb0c5a7886c04e63bfef6dc15eda5942"
+        ]
       },
       "overrides": [],
       "dependencies": [],
@@ -681,12 +682,12 @@
       "overrides": [],
       "dependencies": [
         "ocaml@4.9.0@d41d8cd9", "@opam/dune@opam:1.11.4@a7ccb7ae",
-        "@opam/base@opam:v0.13.0@93f21415",
+        "@opam/base@opam:v0.13.1@7d937ed0",
         "@esy-ocaml/substs@0.0.1@d41d8cd9"
       ],
       "devDependencies": [
         "ocaml@4.9.0@d41d8cd9", "@opam/dune@opam:1.11.4@a7ccb7ae",
-        "@opam/base@opam:v0.13.0@93f21415"
+        "@opam/base@opam:v0.13.1@7d937ed0"
       ]
     },
     "@opam/sexplib0@opam:v0.13.0@3f54c2be": {
@@ -889,7 +890,7 @@
         "@opam/ocaml-migrate-parsetree@opam:1.5.0@3e319dbc",
         "@opam/ocaml-compiler-libs@opam:v0.12.1@5c34eb0d",
         "@opam/dune@opam:1.11.4@a7ccb7ae",
-        "@opam/base@opam:v0.13.0@93f21415",
+        "@opam/base@opam:v0.13.1@7d937ed0",
         "@esy-ocaml/substs@0.0.1@d41d8cd9"
       ],
       "devDependencies": [
@@ -897,7 +898,7 @@
         "@opam/ppx_derivers@opam:1.2.1@ecf0aa45",
         "@opam/ocaml-migrate-parsetree@opam:1.5.0@3e319dbc",
         "@opam/ocaml-compiler-libs@opam:v0.12.1@5c34eb0d",
-        "@opam/dune@opam:1.11.4@a7ccb7ae", "@opam/base@opam:v0.13.0@93f21415"
+        "@opam/dune@opam:1.11.4@a7ccb7ae", "@opam/base@opam:v0.13.1@7d937ed0"
       ]
     },
     "@opam/ppxfind@opam:1.3@7678afe9": {
@@ -956,8 +957,8 @@
         "@opam/dune@opam:1.11.4@a7ccb7ae"
       ]
     },
-    "@opam/ppx_tools@opam:6.0+4.08.0@3c9e8a67": {
-      "id": "@opam/ppx_tools@opam:6.0+4.08.0@3c9e8a67",
+    "@opam/ppx_tools@opam:6.0+4.08.0@5f5453f4": {
+      "id": "@opam/ppx_tools@opam:6.0+4.08.0@5f5453f4",
       "name": "@opam/ppx_tools",
       "version": "opam:6.0+4.08.0",
       "source": {
@@ -981,27 +982,27 @@
         "ocaml@4.9.0@d41d8cd9", "@opam/dune@opam:1.11.4@a7ccb7ae"
       ]
     },
-    "@opam/ppx_deriving@opam:4.4@21d6c7a5": {
-      "id": "@opam/ppx_deriving@opam:4.4@21d6c7a5",
+    "@opam/ppx_deriving@opam:4.4.1@208c6c8f": {
+      "id": "@opam/ppx_deriving@opam:4.4.1@208c6c8f",
       "name": "@opam/ppx_deriving",
-      "version": "opam:4.4",
+      "version": "opam:4.4.1",
       "source": {
         "type": "install",
         "source": [
-          "archive:https://opam.ocaml.org/cache/sha256/c2/c2d85af4cb65a1f163f624590fb0395a164bbfd0d05082092526b669e66bcc34#sha256:c2d85af4cb65a1f163f624590fb0395a164bbfd0d05082092526b669e66bcc34",
-          "archive:https://github.com/ocaml-ppx/ppx_deriving/archive/v4.4.tar.gz#sha256:c2d85af4cb65a1f163f624590fb0395a164bbfd0d05082092526b669e66bcc34"
+          "archive:https://opam.ocaml.org/cache/sha256/27/27bc57774724fc4f48775f2011375a5ee1439570204abbf6607761c472757e2f#sha256:27bc57774724fc4f48775f2011375a5ee1439570204abbf6607761c472757e2f",
+          "archive:https://github.com/ocaml-ppx/ppx_deriving/archive/v4.4.1.tar.gz#sha256:27bc57774724fc4f48775f2011375a5ee1439570204abbf6607761c472757e2f"
         ],
         "opam": {
           "name": "ppx_deriving",
-          "version": "4.4",
-          "path": "esy.lock/opam/ppx_deriving.4.4"
+          "version": "4.4.1",
+          "path": "esy.lock/opam/ppx_deriving.4.4.1"
         }
       },
       "overrides": [],
       "dependencies": [
         "ocaml@4.9.0@d41d8cd9", "@opam/result@opam:1.4@dc720aef",
         "@opam/ppxfind@opam:1.3@7678afe9",
-        "@opam/ppx_tools@opam:6.0+4.08.0@3c9e8a67",
+        "@opam/ppx_tools@opam:6.0+4.08.0@5f5453f4",
         "@opam/ppx_derivers@opam:1.2.1@ecf0aa45",
         "@opam/ocaml-migrate-parsetree@opam:1.5.0@3e319dbc",
         "@opam/dune@opam:1.11.4@a7ccb7ae", "@opam/cppo@opam:1.6.6@f4f83858",
@@ -1009,7 +1010,7 @@
       ],
       "devDependencies": [
         "ocaml@4.9.0@d41d8cd9", "@opam/result@opam:1.4@dc720aef",
-        "@opam/ppx_tools@opam:6.0+4.08.0@3c9e8a67",
+        "@opam/ppx_tools@opam:6.0+4.08.0@5f5453f4",
         "@opam/ppx_derivers@opam:1.2.1@ecf0aa45",
         "@opam/ocaml-migrate-parsetree@opam:1.5.0@3e319dbc",
         "@opam/dune@opam:1.11.4@a7ccb7ae"
@@ -2097,20 +2098,20 @@
         "ocaml@4.9.0@d41d8cd9", "@opam/ocamlfind@opam:1.8.1@ff07b0f9"
       ]
     },
-    "@opam/base@opam:v0.13.0@93f21415": {
-      "id": "@opam/base@opam:v0.13.0@93f21415",
+    "@opam/base@opam:v0.13.1@7d937ed0": {
+      "id": "@opam/base@opam:v0.13.1@7d937ed0",
       "name": "@opam/base",
-      "version": "opam:v0.13.0",
+      "version": "opam:v0.13.1",
       "source": {
         "type": "install",
         "source": [
-          "archive:https://opam.ocaml.org/cache/md5/52/527289dbc2c7de748f965d3caae450cb#md5:527289dbc2c7de748f965d3caae450cb",
-          "archive:https://ocaml.janestreet.com/ocaml-core/v0.13/files/base-v0.13.0.tar.gz#md5:527289dbc2c7de748f965d3caae450cb"
+          "archive:https://opam.ocaml.org/cache/md5/29/296457416f9a8b75e6edfc3b1140e384#md5:296457416f9a8b75e6edfc3b1140e384",
+          "archive:https://github.com/janestreet/base/archive/v0.13.1.tar.gz#md5:296457416f9a8b75e6edfc3b1140e384"
         ],
         "opam": {
           "name": "base",
-          "version": "v0.13.0",
-          "path": "esy.lock/opam/base.v0.13.0"
+          "version": "v0.13.1",
+          "path": "esy.lock/opam/base.v0.13.1"
         }
       },
       "overrides": [],

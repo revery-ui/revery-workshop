@@ -14,11 +14,7 @@
     "@opam/cmdliner": "1.0.2",
     //"@opam/js_of_ocaml": "github:ocsigen/js_of_ocaml:js_of_ocaml.opam#db257ce",
     //"@opam/js_of_ocaml-compiler": "github:ocsigen/js_of_ocaml:js_of_ocaml-compiler.opam#db257ce",
-    "@brisk/brisk-reconciler": "briskml/brisk-reconciler#0a2e476",
     "esy-cmake": "prometheansacrifice/esy-cmake#2a47392def755",
-    "esy-sdl2": "revery-ui/esy-sdl2#b63892b",
-    "esy-skia": "revery-ui/esy-skia#91b10c9",
-    "rebez": "github:jchavarri/rebez#03fa3b7",
     "revery": "revery-ui/revery#8417070",
     "timber": "glennsl/timber#ae065bb",
     "reason-harfbuzz": "revery-ui/reason-harfbuzz#0848520"
