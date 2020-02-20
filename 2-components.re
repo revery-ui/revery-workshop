@@ -45,7 +45,7 @@ module Constants = {
   let pipeGap = 200;
 };
 
-let bird = (~children as _, ~y, ()) => {
+let bird = (~y, ()) => {
   <Positioned top=y left=0>
     <Image
       src=Assets.Bird.image01
@@ -55,7 +55,7 @@ let bird = (~children as _, ~y, ()) => {
   </Positioned>;
 };
 
-let ground = (~children as _, ()) => {
+let ground = () => {
   <Positioned bottom=0 left=0>
     <Image
       src=Assets.Land.image
@@ -66,7 +66,7 @@ let ground = (~children as _, ()) => {
   </Positioned>;
 };
 
-let sky = (~children as _, ()) => {
+let sky = () => {
   <Positioned bottom=0 left=0>
     <Image
       src=Assets.Sky.image
@@ -80,7 +80,7 @@ let sky = (~children as _, ()) => {
 let textStyle =
   Style.[
     fontFamily("Roboto-Regular.ttf"),
-    fontSize(24),
+    fontSize(24.),
     color(Colors.white),
   ];
 

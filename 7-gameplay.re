@@ -45,7 +45,7 @@ module Constants = {
   let pipeGap = 200;
 };
 
-let bird = (~children as _, ~y, ()) => {
+let bird = (~y, ()) => {
   <Positioned top=y left=Constants.birdX>
     <Image
       src=Assets.Bird.image01
@@ -55,7 +55,7 @@ let bird = (~children as _, ~y, ()) => {
   </Positioned>;
 };
 
-let ground = (~children as _, ~time, ()) => {
+let ground = (~time, ()) => {
   let parallax =
     (-1.0)
     *. mod_float(time *. Constants.speedF, float_of_int(Assets.Land.width))
@@ -82,7 +82,7 @@ let ground = (~children as _, ~time, ()) => {
   </Positioned>;
 };
 
-let sky = (~children as _, ()) => {
+let sky = () => {
   <Positioned bottom=0 left=0>
     <Image
       src=Assets.Sky.image
@@ -96,7 +96,7 @@ let sky = (~children as _, ()) => {
 let textStyle =
   Style.[
     fontFamily("Roboto-Regular.ttf"),
-    fontSize(24),
+    fontSize(24.),
     color(Colors.white),
   ];
 
@@ -141,14 +141,14 @@ module State = {
       let y = bird.position;
       let width = Assets.Bird.width |> float_of_int;
       let height = Assets.Bird.height |> float_of_int;
-      Rectangle.create(~x, ~y, ~width, ~height, ());
+      Rectangle.create(~x, ~y, ~width, ~height);
     };
   };
 
   module Pipe = {
     type t = {
-      top: Revery.Math.Rectangle.t,
-      bottom: Revery.Math.Rectangle.t,
+      top: Rectangle.t,
+      bottom: Rectangle.t,
     };
 
     let create = (~x, ~height as h, ()) => {
@@ -160,8 +160,8 @@ module State = {
         float_of_int(Constants.height - Constants.pipeGap) -. h -. height;
       let bottomY = float_of_int(Constants.height) -. h;
 
-      let top = almostRect(~y=topY, ());
-      let bottom = almostRect(~y=bottomY, ());
+      let top = almostRect(~y=topY);
+      let bottom = almostRect(~y=bottomY);
       {top, bottom};
     };
 
@@ -268,7 +268,7 @@ module State = {
     };
 };
 
-let pipe = (~children as _, ~pipe: State.Pipe.t, ()) => {
+let pipe = (~pipe: State.Pipe.t, ()) => {
   let x = State.Pipe.getX(pipe) |> int_of_float;
 
   let topY = Rectangle.getY(pipe.top) |> int_of_float;
@@ -294,52 +294,39 @@ let pipe = (~children as _, ~pipe: State.Pipe.t, ()) => {
   </Positioned>;
 };
 
-let world = {
-  let component = React.component("world");
+let%component world = () => {
+  let%hook (state, dispatch) =
+    Hooks.reducer(~initialState=State.initialState, State.reducer);
 
-  (~children as _: list(React.syntheticElement), ()) =>
-    component(hooks => {
-      let (state, dispatch, hooks) =
-        Hooks.reducer(~initialState=State.initialState, State.reducer, hooks);
+  let pipes =
+    state.pipes |> List.map(p => <pipe pipe=p />) |> React.listToElement;
 
-      let hooks =
-        Hooks.tick(
-          ~tickRate=Seconds(0.),
-          t => dispatch(Step(Time.toSeconds(t))),
-          hooks,
-        );
-      let hooks =
-        Hooks.tick(
-          ~tickRate=Seconds(4.),
-          _ =>
-            dispatch(
-              CreatePipe(Random.float(float_of_int(Assets.Pipe.height))),
-            ),
-          hooks,
-        );
+  let%hook () =
+    Hooks.tick(~tickRate=Time.zero, t =>
+      dispatch(Step(Time.toFloatSeconds(t)))
+    );
+  let%hook () =
+    Hooks.tick(~tickRate=Time.seconds(4), _ =>
+      dispatch(CreatePipe(Random.float(float_of_int(Assets.Pipe.height))))
+    );
 
-      let pipes = List.map(p => <pipe pipe=p />, state.pipes);
-      (
-        hooks,
-        <Center>
-          <View onMouseDown={_ => dispatch(Flap)}>
-            <ClipContainer
-              width=Constants.width
-              height=Constants.height
-              color=Colors.cornflowerBlue>
-              <sky />
-              <ground time={state.time} />
-              <View> ...pipes </View>
-              <bird y={int_of_float(state.bird.position)} />
-              <Text
-                style=textStyle
-                text={"Score: " ++ string_of_int(state.score)}
-              />
-            </ClipContainer>
-          </View>
-        </Center>,
-      );
-    });
+  <Center>
+    <View onMouseDown={_ => dispatch(Flap)}>
+      <ClipContainer
+        width=Constants.width
+        height=Constants.height
+        color=Colors.cornflowerBlue>
+        <sky />
+        <ground time={state.time} />
+        <View> ...pipes </View>
+        <bird y={int_of_float(state.bird.position)} />
+        <Text
+          style=textStyle
+          text={"Score: " ++ string_of_int(state.score)}
+        />
+      </ClipContainer>
+    </View>
+  </Center>;
 };
 
 Playground.render(<world />);

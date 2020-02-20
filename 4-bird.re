@@ -45,7 +45,7 @@ module Constants = {
   let pipeGap = 200;
 };
 
-let bird = (~children as _, ~y, ()) => {
+let bird = (~y, ()) => {
   <Positioned top=y left=Constants.birdX>
     <Image
       src=Assets.Bird.image01
@@ -55,7 +55,7 @@ let bird = (~children as _, ~y, ()) => {
   </Positioned>;
 };
 
-let ground = (~children as _, ~time, ()) => {
+let ground = (~time, ()) => {
   let parallax =
     (-1.0)
     *. mod_float(time *. Constants.speedF, float_of_int(Assets.Land.width))
@@ -82,7 +82,7 @@ let ground = (~children as _, ~time, ()) => {
   </Positioned>;
 };
 
-let sky = (~children as _, ()) => {
+let sky = () => {
   <Positioned bottom=0 left=0>
     <Image
       src=Assets.Sky.image
@@ -96,7 +96,7 @@ let sky = (~children as _, ()) => {
 let textStyle =
   Style.[
     fontFamily("Roboto-Regular.ttf"),
-    fontSize(24),
+    fontSize(24.),
     color(Colors.white),
   ];
 
@@ -153,41 +153,31 @@ module State = {
     };
 };
 
-let world = {
-  let component = React.component("world");
+let%component world = () => {
+  let%hook (state, dispatch) =
+    Hooks.reducer(~initialState=State.initialState, State.reducer);
 
-  (~children as _: list(React.syntheticElement), ()) =>
-    component(hooks => {
-      let (state, dispatch, hooks) =
-        Hooks.reducer(~initialState=State.initialState, State.reducer, hooks);
+  let%hook () =
+    Hooks.tick(~tickRate=Time.zero, t =>
+      dispatch(Step(Time.toFloatSeconds(t)))
+    );
 
-      let hooks =
-        Hooks.tick(
-          ~tickRate=Seconds(0.),
-          t => dispatch(Step(Time.toSeconds(t))),
-          hooks,
-        );
-
-      (
-        hooks,
-        <Center>
-          <View onMouseDown={_ => dispatch(Flap)}>
-            <ClipContainer
-              width=Constants.width
-              height=Constants.height
-              color=Colors.cornflowerBlue>
-              <sky />
-              <ground time={state.time} />
-              <bird y={int_of_float(state.bird.position)} />
-              <Text
-                style=textStyle
-                text={"Time: " ++ string_of_float(state.time)}
-              />
-            </ClipContainer>
-          </View>
-        </Center>,
-      );
-    });
+  <Center>
+    <View onMouseDown={_ => dispatch(Flap)}>
+      <ClipContainer
+        width=Constants.width
+        height=Constants.height
+        color=Colors.cornflowerBlue>
+        <sky />
+        <ground time={state.time} />
+        <bird y={int_of_float(state.bird.position)} />
+        <Text
+          style=textStyle
+          text={"Time: " ++ string_of_float(state.time)}
+        />
+      </ClipContainer>
+    </View>
+  </Center>;
 };
 
 Playground.render(<world />);

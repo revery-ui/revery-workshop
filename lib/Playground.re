@@ -1,8 +1,6 @@
 open Revery;
-open Revery.UI;
-open Revery.UI.Components;
 
-let render = (elem) => {
+let render = elem => {
 	let init = app => {
 			let createOptions =
 					WindowCreateOptions.create(
@@ -12,8 +10,7 @@ let render = (elem) => {
 					);
 			let win = App.createWindow(~createOptions, app, "FlappyRevery");
 
-			let _ = UI.start(win, elem);
-			();
+			let _: UI.renderFunction = UI.start(win, elem);
 	};
 
 	App.start(init);

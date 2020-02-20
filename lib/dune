@@ -3,6 +3,5 @@
     (public_name App.playground)
     (libraries
         bigarray
-        reglfw
         Revery
             ))

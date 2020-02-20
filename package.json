@@ -7,23 +7,23 @@
     "build": "refmterr dune build -p App"
   },
   "dependencies": {
-    "ocaml": "~4.7.0",
-    "revery": "0.23.0",
-    "@opam/dune": "1.7.3"
+    "revery": "*",
+    "@opam/dune": "*"
   },
   "resolutions": {
     "@opam/cmdliner": "1.0.2",
-    "@opam/js_of_ocaml": "github:ocsigen/js_of_ocaml:js_of_ocaml.opam#db257ce",
-    "@opam/js_of_ocaml-compiler": "github:ocsigen/js_of_ocaml:js_of_ocaml-compiler.opam#db257ce",
-    "@brisk/brisk-reconciler": "github:briskml/brisk-reconciler#dd933fc",
-    "rebez": "github:jchavarri/rebez#46cbc183"
+    //"@opam/js_of_ocaml": "github:ocsigen/js_of_ocaml:js_of_ocaml.opam#db257ce",
+    //"@opam/js_of_ocaml-compiler": "github:ocsigen/js_of_ocaml:js_of_ocaml-compiler.opam#db257ce",
+    "esy-cmake": "prometheansacrifice/esy-cmake#2a47392def755",
+    "revery": "revery-ui/revery#1090477",
+    "timber": "glennsl/timber#ae065bb"
   },
   "scripts": {
    "format": "bash -c \"refmt --in-place *.re\"",
    "run": "esy x 8-completed"
   },
   "devDependencies": {
-    "ocaml": "~4.7.0",
+    "ocaml": "~4.9.0",
     "@opam/merlin": "*"
   }
 }
