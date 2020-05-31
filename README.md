@@ -24,7 +24,7 @@ Prior to the workshop, please install the following dependencies:
 
 - Follow additional platform-specific instructors:
   - Mac: https://github.com/revery-ui/revery/wiki/Building-&-Installing#for-macos-users
-  - Linux: https://github.com/revery-ui/revery/wiki/Building-&-Installing#for-macos-users
+  - Linux: https://github.com/revery-ui/revery/wiki/Building-&-Installing#for-linux-users
   - Windows: https://github.com/revery-ui/revery/wiki/Building-&-Installing#for-windows-native
 
 The first-time build can take a while, as the entire compiler toolchain is being built. We recommend cloning the repository and building via:
@@ -95,7 +95,7 @@ But here's a few resources for getting information, too:
 We'll move away from a boring blue screen and start adding some life to our app.
 
 - Create a static `<bird />` component
-- Add a position prop to our `<bird />
+- Add a position prop to our `<bird />`
 - Create a static `<ground />` component
 - Add a text component
 
