@@ -6,24 +6,24 @@ module Assets = {
   module Sky = {
     let height = 128;
     let width = 256;
-    let image = "sky.png";
+    let image = `File("sky.png");
   };
   module Pipe = {
     let width = 90;
     let height = 480;
-    let imageUp = "PipeUp.png";
-    let imageDown = "PipeDown.png";
+    let imageUp = `File("PipeUp.png");
+    let imageDown = `File("PipeDown.png");
   };
   module Bird = {
     let height = 32;
     let width = 32;
-    let image01 = "bird-01.png";
-    let image02 = "bird-02.png";
-    let image03 = "bird-03.png";
-    let image04 = "bird-04.png";
+    let image01 = `File("bird-01.png");
+    let image02 = `File("bird-02.png");
+    let image03 = `File("bird-03.png");
+    let image04 = `File("bird-04.png");
   };
   module Land = {
-    let image = "land.png";
+    let image = `File("land.png");
     let width = 256;
     let height = 32;
   };
