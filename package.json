@@ -1,29 +1,23 @@
 {
   "name": "revery-workshop",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Revery Workshop",
   "license": "MIT",
   "esy": {
-    "build": "refmterr dune build -p App"
+    "build": "refmterr dune build -p App @install",
+    "install": "esy-installer App.install"
   },
   "dependencies": {
-    "revery": "*",
-    "@opam/dune": "*"
-  },
-  "resolutions": {
-    "@opam/cmdliner": "1.0.2",
-    //"@opam/js_of_ocaml": "github:ocsigen/js_of_ocaml:js_of_ocaml.opam#db257ce",
-    //"@opam/js_of_ocaml-compiler": "github:ocsigen/js_of_ocaml:js_of_ocaml-compiler.opam#db257ce",
-    "esy-cmake": "prometheansacrifice/esy-cmake#2a47392def755",
-    "revery": "revery-ui/revery#1090477",
-    "timber": "glennsl/timber#ae065bb"
+    "@esy-ocaml/reason": "^3.6.0",
+    "revery": "revery-ui/revery#d5413de06b5f5b95065ce46e7621301db1c52300",
+    "ocaml": "~4.10",
+    "@glennsl/timber": "^1.2.0"
   },
   "scripts": {
-   "format": "bash -c \"refmt --in-place *.re\"",
-   "run": "esy x 8-completed"
+    "format": "bash -c \"refmt --in-place *.re\"",
+    "run": "esy x 8-completed"
   },
   "devDependencies": {
-    "ocaml": "~4.9.0",
-    "@opam/merlin": "*"
+    "@opam/ocaml-lsp-server": "ocaml/ocaml-lsp:ocaml-lsp-server.opam"
   }
 }
